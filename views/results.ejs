@@ -1,0 +1,21 @@
+<% include partials/header.ejs %>
+  </head>
+
+  <body>
+    <main>
+      <h1>Images that are Cool.</h1>
+      <br>
+      <form action="/search">
+        <input type="text" size="20" placeholder="Type Keyword" name="keyword" />
+        <br /><br />
+        <button>Search</button>
+      </form>
+
+<% imageURLs.forEach(function(imageURL, i){ %>
+        <%- (i%3==0)?'<br>':'' %>
+        <img src='<%=imageURL%>' width='200' height='200'>
+
+        <% }) %>
+
+    </main>
+    <% include partials/footer.ejs %>

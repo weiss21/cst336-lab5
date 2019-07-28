@@ -2,7 +2,7 @@
   "name": "cst336-lab5",
   "version": "1.0.0",
   "description": "Express and MySQL",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/weiss21/cst336-lab5.git"
   },
-  "author": "",
+  "author": "weiss21",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/weiss21/cst336-lab5/issues"
@@ -18,6 +18,9 @@
   "homepage": "https://github.com/weiss21/cst336-lab5#readme",
   "dependencies": {
     "ejs": "^2.6.2",
-    "express": "^4.17.1"
-  }
+    "express": "^4.17.1",
+    "mysql": "^2.17.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {}
 }
