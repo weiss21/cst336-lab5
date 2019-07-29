@@ -28,8 +28,8 @@ $(document).ready(function() {
       //    $("#favorites").append("");
         //}
         //$("#favorites").append(row.imageURL+"<br>");
-        $("#favorites").append("<img src='" + row.imageURL + "' width='200' height='200'>");
-        //$("#favorites").append("<img src='/img/favorite_on.png' class='favoriteIconResults' width='20'>")
+        $("#favorites").append("<img class='image' src='" + row.imageURL + "' width='200' height='200'>");
+        //$("#favorites").append("<img src='/img/favorite_on.png' class='favorites' width='20'>")
       })
     }
   }) //ajax

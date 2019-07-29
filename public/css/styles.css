@@ -11,7 +11,7 @@ input, button {
 }
 
 main {
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.75);/*Taken from Instructor video*/
   width: 50%;
   margin: 0 auto; /*Centers Content*/
 }
@@ -22,4 +22,34 @@ h1 {
 input {
   font-size: 1.3em;
   size: 15;
+}
+
+#favLink, #searchLink {
+  background-color: rgba(250,250, 250, 0.75);/*Taken from Video*/
+  color: cyan;
+  font-size: .8ems;
+}
+
+.image {
+  border-radius: 20px;
+}
+
+.imageContainer {
+  background-color: rgba(250,250, 250, 0.75);/*Taken from Video*/
+  display: inline-block;
+  paddin: 15px;
+}
+
+#favHeader {
+  background-color: rgba(250,250, 250, 0.75);/*Taken from Video*/
+  color:silver;
+  width: 50%;
+  border-radius: 25px;
+  margin: 0 auto; /*centers container*/
+}
+
+.keywordLink {
+  background-color: rgba(250,250, 250, 0.75);/*Taken from Video*/
+  text-color: white;
+  font-size: 1.5em;
 }
