@@ -6,9 +6,10 @@
       <h1>Images that are Cool.</h1>
       <br>
       <form action="/search">
-        <input type="text" size="20" placeholder="Type Keyword" name="keyword" />
+        <input type="text" id="keyword" value="<%=keyword%>" size="20" placeholder="Type Keyword" name="keyword" />
         <br /><br />
         <button>Search</button>
+        <a href="/displayKeywords"> See Favorites</a>
       </form>
 
 <% imageURLs.forEach(function(imageURL, i){ %>

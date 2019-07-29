@@ -15,6 +15,63 @@ let serial = process.env.IP || "0.0.0.0"; // same as comment above
 //  console.log("Express Server is Running...")
 //})
 
+app.get("/api/updateFavorites", function(req, res){
+  
+  var conn = tools.createConnection();
+  var sql;
+  var sqlParams = [];
+  
+  if (req.query.action == "add") {
+        sql = "INSERT INTO favorites (imageURL, keyword) VALUES (?, ?)";
+        sqlParams = [req.query.imageURL, req.query.keyword];
+    } else {
+        sql = "DELETE FROM favorites WHERE imageURL = ?"
+        sqlParams = [req.query.imageURL];
+    }
+  
+  conn.connect( function(err){
+    if (err) throw err;
+    
+    conn.query(sql, sqlParams,  function(err, result){
+        if(err) throw err;
+    });//query
+  }); //connect
+  
+  res.send("It Works!");
+});//update favorites
+
+app.get("/displayKeywords", function(req, res){
+  var conn = tools.createConnection();
+  var sql = "SELECT DISTINCT keyword FROM `favorites` ORDER BY keyword";
+  
+  conn.connect(function(err){
+    if(err) throw err;
+    conn.query(sql, function(err, result){
+      if(err) throw err;
+      res.render("favorites", {"rows": result});
+      console.log(result);
+    }) // query
+  });//connect
+})//display Keywords
+
+app.get("/api/displayFavorites", function(req, res) {
+  var conn = tools.createConnection();
+  var sql = "SELECT imageURL FROM favorites WHERE keyword = ?";
+  var sqlParams = [req.query.keyword];
+
+  conn.connect(function(err, result) {
+    if (err) throw err;
+
+    conn.query(sql, sqlParams, function(err, result) {
+
+      if (err) throw err;
+      res.send(result);
+    })
+
+  })
+
+}); // displayFavorites
+
 // Heroku update server listener
 app.listen(port, serial, function() {
   console.log("Express Server is Running. . . ")
