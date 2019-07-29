@@ -40,7 +40,8 @@ app.get("/api/updateFavorites", function(req, res){
   res.send("It Works!");
 });//update favorites
 
-app.get("/displayKeywords", function(req, res){
+app.get("/displayKeywords", async function(req, res){
+  var imageURLs = await tools.getRandomImagesPromise("", 1);
   var conn = tools.createConnection();
   var sql = "SELECT DISTINCT keyword FROM `favorites` ORDER BY keyword";
   
@@ -48,7 +49,7 @@ app.get("/displayKeywords", function(req, res){
     if(err) throw err;
     conn.query(sql, function(err, result){
       if(err) throw err;
-      res.render("favorites", {"rows": result});
+      res.render("favorites", {"rows": result, "imageURLs": imageURLs});
       console.log(result);
     }) // query
   });//connect
@@ -81,7 +82,7 @@ app.listen(port, serial, function() {
 //route route
 app.get("/", async function(req, res) {
   let imageURLs = await tools.getRandomImagesPromise("", 1);
-  res.render("index", {"imageURL": imageURLs});
+  res.render("index", {"imageURLs": imageURLs});
 }); //route
 
 

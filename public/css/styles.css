@@ -1,0 +1,25 @@
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;/*Taken from Goole Fonts*/
+  font-size: 2.5em;
+}
+
+input, button {
+  font-size: 2.5em;
+}
+
+main {
+  background-color: rgba(0,0,0,0.75);
+  width: 50%;
+  margin: 0 auto; /*Centers Content*/
+}
+
+h1 {
+  color: silver;
+}
+input {
+  font-size: 1.3em;
+  size: 15;
+}

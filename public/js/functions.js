@@ -27,8 +27,8 @@ $(document).ready(function() {
        // } else {
       //    $("#favorites").append("");
         //}
-        $("#favorites").append(row.imageURL+"<br>");
-        //$("#favorites").append("<img src='" + row.imageURL + "' width='200' height='200'>");
+        //$("#favorites").append(row.imageURL+"<br>");
+        $("#favorites").append("<img src='" + row.imageURL + "' width='200' height='200'>");
         //$("#favorites").append("<img src='/img/favorite_on.png' class='favoriteIconResults' width='20'>")
       })
     }
