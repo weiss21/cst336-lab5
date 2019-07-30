@@ -21,13 +21,13 @@ $(document).ready(function() {
     },
     success: function(rows, status) {
       $("#favorites").html("");
-      rows.forEach(function(row) {
-        //if (i % 4 == 0) {
-       //   $("#favorites").append("<br />");
-       // } else {
-      //    $("#favorites").append("");
-        //}
-        //$("#favorites").append(row.imageURL+"<br>");
+      rows.forEach(function(row, i) {
+        if (i % 4 == 0) {
+          $("#favorites").append("<br />");
+        } else {
+          $("#favorites").append("");
+        }
+        $("#favorites").append(row.imageURL+"<br>");
         $("#favorites").append("<img class='image' src='" + row.imageURL + "' width='200' height='200'>");
         //$("#favorites").append("<img src='/img/favorite_on.png' class='favorites' width='20'>")
       })
