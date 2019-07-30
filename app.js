@@ -45,14 +45,11 @@ app.get("/displayKeywords", async function(req, res){
   var conn = tools.createConnection();
   var sql = "SELECT DISTINCT keyword FROM `favorites` ORDER BY keyword";
   
-  conn.connect(function(err){
-    if(err) throw err;
     conn.query(sql, function(err, result){
       if(err) throw err;
       res.render("favorites", {"rows": result, "imageURLs": imageURLs});
       console.log(result);
     }) // query
-  });//connect
 })//display Keywords
 
 app.get("/api/displayFavorites", function(req, res) {

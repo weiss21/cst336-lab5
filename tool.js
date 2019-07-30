@@ -61,6 +61,7 @@ module.exports = {
    */
 //mysql://b9206aaf590f18:9d245c3e@us-cdbr-iron-east-02.cleardb.net/heroku_c203b41df50da1f?reconnect=true
   // Create a connection to the database server
+  //pool method linked by instructor in iLearn
   createConnection: function() {
     var conn = mysql.mysql.createPool({
       connectionLimit: 10,
