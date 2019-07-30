@@ -19,7 +19,7 @@ app.get("/api/updateFavorites", function(req, res){
   
   var conn = tools.createConnection();
   var sql;
-  var sqlParams = [];
+  var sqlParams;
   
   if (req.query.action == "add") {
         sql = "INSERT INTO favorites (imageURL, keyword) VALUES (?, ?)";
@@ -47,9 +47,10 @@ app.get("/displayKeywords", async function(req, res) {
 
   conn.connect(function(err) {
     if (err) throw err;
-    conn.query(sql, sqlParams, function(err, result) {
+    conn.query(sql, function(err, result){
       if (err) throw err;
-      res.send(result);
+      res.render("favorites", {"rows": result, "imageURLs": imageURLs});
+      console.log(result);
     }); // query
   }); //connect
 }); //display Keywords
@@ -59,16 +60,16 @@ app.get("/api/displayFavorites", function(req, res) {
   var sql = "SELECT imageURL FROM favorites WHERE keyword = ?";
   var sqlParams = [req.query.keyword];
 
-  conn.connect(function(err, result) {
+  conn.connect(function(err) {
     if (err) throw err;
 
     conn.query(sql, sqlParams, function(err, result) {
 
       if (err) throw err;
       res.send(result);
-    })
+    });//query
 
-  })
+  });//connect
 
 }); // displayFavorites
 
