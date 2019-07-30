@@ -59,9 +59,20 @@ module.exports = {
    * creates database conneciton
    * @return db connection
    */
-
+//mysql://b9206aaf590f18:9d245c3e@us-cdbr-iron-east-02.cleardb.net/heroku_c203b41df50da1f?reconnect=true
   // Create a connection to the database server
-
+  createConnection: function() {
+    var conn = mysql.createConnection({
+      host: "us-cdbr-iron-east-02.cleardb.net",
+      user: "b9206aaf590f18",
+      password: "9d245c3e",
+      database: "heroku_c203b41df50da1f"
+    });
+    return conn;
+  }
+  
+  //old connection below
+/*
   createConnection: function() {
     var conn = mysql.createConnection({
       host: "localhost",
@@ -71,5 +82,7 @@ module.exports = {
     });
     return conn;
   }
-
+*/
+  
+  
 } // exports ending
