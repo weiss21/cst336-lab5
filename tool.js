@@ -62,7 +62,8 @@ module.exports = {
 //mysql://b9206aaf590f18:9d245c3e@us-cdbr-iron-east-02.cleardb.net/heroku_c203b41df50da1f?reconnect=true
   // Create a connection to the database server
   createConnection: function() {
-    var conn = mysql.createConnection({
+    var conn = mysql.mysql.createPool({
+      connectionLimit: 10,
       host: "us-cdbr-iron-east-02.cleardb.net",
       user: "b9206aaf590f18",
       password: "9d245c3e",
