@@ -37,7 +37,7 @@ app.get("/api/updateFavorites", function(req, res){
 });//update favorites
 
 app.get("/displayKeywords", async function(req, res) {
-  var imageURLs = await tools.getRandomImagesPromise("", 1);
+  var imageURLs = await tools.getRandomImages_cb("", 1);
   var conn = tools.createConnection();
   var sql = "SELECT DISTINCT keyword FROM `favorites` ORDER BY keyword";
 
@@ -45,8 +45,7 @@ app.get("/displayKeywords", async function(req, res) {
     conn.query(sql, function(err, result){
       if (err) throw err;
       res.render("favorites", {"rows": result, "imageURLs": imageURLs});
-      console.log(result);
-    }); // query
+    }) // query
 }); //display Keywords
 
 app.get("/api/displayFavorites", function(req, res) {
@@ -59,7 +58,7 @@ app.get("/api/displayFavorites", function(req, res) {
 
       if (err) throw err;
       res.send(result);
-    });//query
+    })//query
 
 
 }); // displayFavorites

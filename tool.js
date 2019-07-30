@@ -47,9 +47,7 @@ module.exports = {
           //let imageURL = parsedData.urls.regular;
           resolve(imageURLs);
         } else {
-          console.log("results", {
-            "error": error
-          });
+          console.log('error', error);
         }
       }); //promise
     });
