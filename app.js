@@ -37,9 +37,9 @@ app.get("/api/updateFavorites", function(req, res){
 });//update favorites
 
 app.get("/displayKeywords", async function(req, res) {
-  var imageURLs = await tools.getRandomImages_cb("", 1);
+  var imageURLs = await tools.getRandomImagesPromise("", 1);
   var conn = tools.createConnection();
-  var sql = "SELECT DISTINCT keyword FROM `favorites` ORDER BY keyword";
+  var sql = "SELECT DISTINCT keyword FROM favorites ORDER BY keyword";
 
 
     conn.query(sql, function(err, result){
