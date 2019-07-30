@@ -63,7 +63,7 @@ module.exports = {
   // Create a connection to the database server
   //pool method linked by instructor in iLearn
   createConnection: function() {
-    var conn = mysql.mysql.createPool({
+    var conn = mysql.createPool({
       connectionLimit: 10,
       host: "us-cdbr-iron-east-02.cleardb.net",
       user: "b9206aaf590f18",
