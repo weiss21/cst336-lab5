@@ -29,12 +29,8 @@ app.get("/api/updateFavorites", function(req, res){
         sqlParams = [req.query.imageURL];
     }
   
-  conn.connect( function(err){
-    if (err) throw err;
-    
     conn.query(sql, sqlParams,  function(err, result){
         if(err) throw err;
-    });//query
   }); //connect
   
   res.send("It Works!");
@@ -45,14 +41,11 @@ app.get("/displayKeywords", async function(req, res) {
   var conn = tools.createConnection();
   var sql = "SELECT DISTINCT keyword FROM `favorites` ORDER BY keyword";
 
-  conn.connect(function(err) {
-    if (err) throw err;
     conn.query(sql, function(err, result){
       if (err) throw err;
       res.render("favorites", {"rows": result, "imageURLs": imageURLs});
       console.log(result);
     }); // query
-  }); //connect
 }); //display Keywords
 
 app.get("/api/displayFavorites", function(req, res) {
@@ -60,16 +53,12 @@ app.get("/api/displayFavorites", function(req, res) {
   var sql = "SELECT imageURL FROM favorites WHERE keyword = ?";
   var sqlParams = [req.query.keyword];
 
-  conn.connect(function(err) {
-    if (err) throw err;
-
     conn.query(sql, sqlParams, function(err, result) {
 
       if (err) throw err;
       res.send(result);
     });//query
 
-  });//connect
 
 }); // displayFavorites
 
