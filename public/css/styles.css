@@ -1,3 +1,7 @@
+/*
+Most of below taken from Instructor videos.
+Some w3 schools and one use of google fonts.
+*/
 body {
   background-size: cover;
   background-repeat: no-repeat;
@@ -42,7 +46,7 @@ input {
 
 #favHeader {
   background-color: rgba(250,250, 250, 0.75);/*Taken from Video*/
-  color:silver;
+  color:Black;
   width: 50%;
   border-radius: 25px;
   margin: 0 auto; /*centers container*/
